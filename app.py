@@ -1,6 +1,7 @@
-from flask  import Flask,render_template,form,request,redirect
+from flask  import Flask,render_template,request,redirect
 import datetime
 import mysql.connector
+from data.conexao import Conexao
 app = Flask(__name__)
 
 #CRIANDO A ROTA incial
@@ -19,13 +20,9 @@ def pagina_cadstro():
     mensagem= request.form.get("mensagem")
     data_hora=datetime.datetime.today()
     # Cadastrando as informações no banco de dados
+    
     # Criando a conexão
-
-    conexao = mysql.connector.connect(hostname="localhost",
-                                        port=3306,
-                                        user="root",
-                                        password="root",
-                                        database="dbFeedback")
+    conexao = Conexao.criar_conexao()
     #    O cursor será responsavel por manipular o bcd
 
     cursor =conexao.cursor()
