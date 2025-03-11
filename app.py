@@ -10,7 +10,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def pagina_incial():
-    return  render_template("index.html")
+    # Recuperando as mensagens
+    mensagens=Mensagem.recuperar_mensagens()
+
+    # Enviar as mensagens para o template
+    return  render_template("index.html",mensagens=mensagens)
 
 
 

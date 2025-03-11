@@ -20,7 +20,17 @@
         <textarea name="mensagem"> </textarea>
         <button type="submit">Enviar💖</button>
     </form>
-   
+
+     <div class="mensagens">
+    {% for mensagem in  mensagens}
+        <strong>{{mensagem.usuario}}  {{mensagem.data_hora}}</strong>
+        <p>{{mensagem.mensagem}}</p>
+   </div>
+        {% endfor}
+
+        
     </div>
+  
+
 </body>
 </html>
