@@ -2,6 +2,8 @@ from flask  import Flask,render_template,request,redirect
 import datetime
 import mysql.connector
 from data.conexao import Conexao
+from model.controler_mensagem  import Mensagem
+
 app = Flask(__name__)
 
 #CRIANDO A ROTA incial
@@ -18,33 +20,9 @@ def pagina_cadstro():
     #Peguei as informações vinda do formulario
     usuario = request.form.get("usuario")
     mensagem= request.form.get("mensagem")
-    data_hora=datetime.datetime.today()
-    # Cadastrando as informações no banco de dados
-    
-    # Criando a conexão
-    conexao = Conexao.criar_conexao()
-    #    O cursor será responsavel por manipular o bcd
 
-    cursor =conexao.cursor()
-    #  Criando o sql que será executado
-
-    sql="""INSERT INTO tbComentarios
-    (Nome,DataPostagem,Comentario)
-    VALUES
-    (%s, %s, %s)"""  
-    valores = (usuario,data_hora,mensagem)
-
-    #    Executando o comenado sql
-    cursor.execute(sql,valores)
-
-    # Confirmo a alteração 
-
-    conexao.commit()
-
-    # Fecho a conexão com o banco
-
-    cursor.close()
-    conexao.close()
+    # Cadastrando a mensagem usando a classe mensagem
+    Mensagem.cadastro_mensagem(usuario,mensagem)
 
     # Redireciona para o index
     return redirect("/")
