@@ -34,9 +34,7 @@ def pagina_cadstro():
 # Criando rota excluir
 @app.route("/delete/mensagem/<codigo>")
 def pagina_delete(codigo):
+   Mensagem.delete_mensagem(codigo)
    return redirect("/")
-
-
-
 
 app.run(debug=True)

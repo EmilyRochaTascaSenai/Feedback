@@ -62,9 +62,30 @@ class Mensagem:
         return resultado
     
     def delete_mensagem(codigo):
-         conexao = Conexao.criar_conexao()
+        conexao = Conexao.criar_conexao()
+        
+        cursor=conexao.cursor()
 
-         cursor=Conexao.cursor()
+        # Criano o SQL  será executado
+
+        sql="""delete  from  tb_comentarios where cod_comentario = %s;"""
+
+        valores=(codigo,)
+        # Executando o comando SQL
+        cursor.execute(sql)
+
+        # Comitand para gravar as alterações
+        conexao.commit()
+
+        # Fechando a conexao
+
+        conexao.close()
+
+
+
+
+
+         
 
          
 
