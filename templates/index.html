@@ -19,12 +19,15 @@
        <label>Comentario</label>
         <textarea name="mensagem"> </textarea>
         <button type="submit">Enviar💖</button>
+        <button type="submit">Deletar💜</button> 
+        <button type="submit">👍</button>
+        <button type="submit">👎</button>
     </form>
-
      <div class="mensagens">
     {% for mensagem in  mensagens}
         <strong>{{mensagem.usuario}}  {{mensagem.data_hora}}</strong>
         <p>{{mensagem.mensagem}}</p>
+        
    </div>
         {% endfor}
 
