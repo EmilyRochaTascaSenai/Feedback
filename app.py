@@ -31,6 +31,12 @@ def pagina_cadstro():
     # Redireciona para o index
     return redirect("/")
 
+# Criando rota excluir
+@app.route("/delete/mensagem/<codigo>")
+def pagina_delete(codigo):
+   return redirect("/")
+
+
 
 
 app.run(debug=True)

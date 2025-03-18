@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for ('static',filename='/style.css')}}">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+             
     <title>Pagina Principal</title>
 </head>
 <body>
@@ -19,21 +25,45 @@
        <label>Comentario</label>
         <textarea name="mensagem"> </textarea>
         <button type="submit">Enviar💖</button>
-        <button type="submit">Deletar💜</button> 
-        <button type="submit">👍</button>
-        <button type="submit">👎</button>
     </form>
      <div class="mensagens">
-    {% for mensagem in  mensagens}
-        <strong>{{mensagem.usuario}}  {{mensagem.data_hora}}</strong>
-        <p>{{mensagem.mensagem}}</p>
+    
+    <table>
+        <thead>
+            <td>
+                Usuario
+            </td>
+            <td>
+                Mensagem
+            </td>
+            <td>
+                Data
+            </td>
+            <td>
+                Ações
+            </td>
+            <tbody>
+                 {% for mensagem in  mensagens}  
+                 <tr>
+                    <td>
+                      {{mensagem.usuario }}
+                    </td>
+                    <td>
+                        {{mensagem.mensagem }} 
+                    </td>
+                    <td>
+                        {{mensagem.data_hora}}
+                    </td>
+                    <td>
+                    <a href="/delete/mensagem/{{mensagem.cod_comentario}}" class="waves-effect waves-light btn" >Excluir💜</a>
+                    </td>
+                 </tr>
+                        {% endfor}
+            </tbody>
+        </thead>
+
+    </table>
         
    </div>
-        {% endfor}
-
-        
-    </div>
-  
-
 </body>
 </html>

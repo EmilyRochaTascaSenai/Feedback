@@ -44,9 +44,10 @@ class Mensagem:
         cursor=conexao.cursor(dictionary=True)
         # Criano o SQL  será executado
 
-        sql="""SELECT Nome as usuario,
-        Comentario as mensagem ,
-        DataPostagem as data_hora 
+        sql="""SELECT cod_comentario,
+          nome as usuario,
+        comentario as mensagem ,
+        data_hora as data_hora 
         FROM tbcomentarios"""
 
         # Executando o comando SQL
@@ -60,4 +61,10 @@ class Mensagem:
 
         return resultado
     
+    def delete_mensagem(codigo):
+         conexao = Conexao.criar_conexao()
+
+         cursor=Conexao.cursor()
+
+         
 
