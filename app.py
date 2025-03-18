@@ -36,5 +36,8 @@ def pagina_cadstro():
 def pagina_delete(codigo):
    Mensagem.delete_mensagem(codigo)
    return redirect("/")
-
+# Criando rota curtida
+@app.route("/put/mensagem/adicionar/curtidas/<codigo>")
+def adicionar_curtida(codigo):
+    return redirect("/")
 app.run(debug=True)
