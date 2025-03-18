@@ -42,8 +42,11 @@
             <td>
                 Ações
             </td>
+            <td>
+                curtidas
+            </td>
             <tbody>
-                 {% for mensagem in  mensagens}  
+                 {% for mensagem in  mensagens%}  
                  <tr>
                     <td>
                       {{mensagem.usuario }}
@@ -55,10 +58,16 @@
                         {{mensagem.data_hora}}
                     </td>
                     <td>
+                        {{mensagem.curtidas}}
+                    </td>
+                    <td>
                     <a href="/delete/mensagem/{{mensagem.cod_comentario}}" class="waves-effect waves-light btn" >Excluir💜</a>
                     </td>
+                    <td>
+                        <a class="waves-effect waves-light btn" >Curtir 👍</a>
+                    </td>
                  </tr>
-                        {% endfor}
+                        {% endfor%}
             </tbody>
         </thead>
 

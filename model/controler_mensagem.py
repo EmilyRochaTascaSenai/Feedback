@@ -16,7 +16,7 @@ class Mensagem:
         cursor =conexao.cursor()
         #  Criando o sql que será executado
 
-        sql="""INSERT INTO tbComentarios
+        sql="""INSERT INTO tb_Comentarios
         (nome,data_hora,comentario)
         VALUES
         (%s, %s, %s)"""  
@@ -47,8 +47,9 @@ class Mensagem:
         sql="""SELECT cod_comentario,
           nome as usuario,
         comentario as mensagem ,
-        data_hora as data_hora 
-        FROM tbcomentarios"""
+        data_hora as data_hora,
+        curtidas
+        FROM tb_comentarios"""
 
         # Executando o comando SQL
         cursor.execute(sql)
@@ -68,11 +69,11 @@ class Mensagem:
 
         # Criano o SQL  será executado
 
-        sql="""delete  from  tb_comentarios where cod_comentario = %s;"""
+        sql="delete from tb_comentarios where cod_comentario = %s;"
 
-        valores=(codigo,)
+        valores=(int(codigo),)
         # Executando o comando SQL
-        cursor.execute(sql)
+        cursor.execute(sql, valores)
 
         # Comitand para gravar as alterações
         conexao.commit()
