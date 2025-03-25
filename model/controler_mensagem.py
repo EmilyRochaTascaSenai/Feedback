@@ -83,7 +83,7 @@ class Mensagem:
         conexao.close()
 
 
-    def curtidas_mensagens(codigo):
+    def curtidas_mensagens(curtida):
         conexao =Conexao.criar_conexao()
 
         cursor=conexao.cursor()
@@ -94,7 +94,7 @@ class Mensagem:
         sql="""UPDATE tb_comentarios 
                 SET curtidas =+1
 """
-        valores=(int(codigo),)
+        valores=(int(curtida),)
 
         # Executando o comando SQL
 

@@ -42,8 +42,8 @@ def adicionar_curtida(codigo):
     return redirect("/")
 
 @app.route("/put/mensagem/adicionar/curtida/<codigo>")
-def curtidas_mensagens(codigo):
-    Mensagem.curtidas_mensagens(codigo)
+def curtidas_mensagens(curtida):
+    Mensagem.curtidas_mensagens(curtida)
     return redirect("/")
 @app.route("/")
 def cadastro_usuario():

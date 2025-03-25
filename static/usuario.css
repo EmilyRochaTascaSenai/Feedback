@@ -1,33 +1,75 @@
-*{
-    padding: 0;
+ /* Reset básico */
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    background-color:#c078df
+    font-family: Arial, sans-serif;
 }
 
-main{
-    width: 100vh;
+/* Centralizando o formulário */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    display: flex;
-    justify-content: center;
+    background-color: #f4f4f4;
 }
 
-form{
-    display: flex;
-
-    flex-direction: column;
-    justify-content: center;
+/* Estilizando o formulário */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
 }
 
-
-label{
-    display: flex;
+/* Estilizando o título */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-input{
-    display: flex;
+/* Estilizando os inputs */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
+/* Estilizando os botões */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
 
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+button[type="button"]:hover {
+    background-color: #c82333;
+}
