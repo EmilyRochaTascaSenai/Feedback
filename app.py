@@ -42,9 +42,10 @@ def adicionar_curtida(curtida):
     Mensagem.curtidas_mensagens(curtida)
     return redirect("/")
 # Criando a rota de cadastro de usuario
-@app.route("/")
+@app.route("cadastro/usuario",methods=["POST"])
 def cadastro_usuario(cadastro):
-    Mensagem.cadastro_usuario(cadastro)
+    usuario = request.form.get("usuario")
+    senha= request.form.get("senha")
     return redirect("/")
 
 # Criando a rota de login de usuario
