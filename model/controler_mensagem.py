@@ -110,7 +110,49 @@ class Mensagem:
         conexao.close()
 
 
+    def cadastro_usuario(cadastro):
+        conexao =Conexao.criar_conexao()
+        cursor=conexao.cursor()
 
+        # Criano o SQL  será executado
+        sql=""""""
+        valores=(int(cadastro),)
+
+        # Executando o comando SQL
+
+        cursor.execute(sql,valores)
+
+        # Comitando para gravar as alterações
+
+        conexao.commit()
+
+        # Fechando a conexão
+
+        conexao.close()
+
+    def login_usuario(login):
+        conexao =Conexao.criar_conexao()
+        cursor=conexao.cursor()
+
+
+         # Criano o SQL  será executado
+        sql=""""""
+        valores=(int(login),)
+
+        # Executando o comando SQL
+
+        cursor.execute(sql,valores)
+
+        # Comitando para gravar as alterações
+
+        conexao.commit()
+
+        # Fechando a conexão
+
+        conexao.close()
+
+
+      
       
 
 

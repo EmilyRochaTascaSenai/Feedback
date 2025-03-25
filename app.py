@@ -38,14 +38,18 @@ def pagina_delete(codigo):
    return redirect("/")
 # Criando rota curtida
 @app.route("/put/mensagem/adicionar/curtidas/<codigo>")
-def adicionar_curtida(codigo):
-    return redirect("/")
-
-@app.route("/put/mensagem/adicionar/curtida/<codigo>")
-def curtidas_mensagens(curtida):
+def adicionar_curtida(curtida):
     Mensagem.curtidas_mensagens(curtida)
     return redirect("/")
+# Criando a rota de cadastro de usuario
 @app.route("/")
-def cadastro_usuario():
+def cadastro_usuario(cadastro):
+    Mensagem.cadastro_usuario(cadastro)
+    return redirect("/")
+
+# Criando a rota de login de usuario
+@app.route("/")
+def login_usuario(login):
+    Mensagem.login_usuario(login)
     return redirect("/")
 app.run(debug=True)
