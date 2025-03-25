@@ -40,4 +40,8 @@ def pagina_delete(codigo):
 @app.route("/put/mensagem/adicionar/curtidas/<codigo>")
 def adicionar_curtida(codigo):
     return redirect("/")
+
+@app.route("/put/mensagem/adicionar/curtida/<codigo>")
+def curtidas_mensagens():
+    return redirect("/")
 app.run(debug=True)
