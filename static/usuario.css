@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color:#c078df
+}
+
+main{
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+label{
+    display: flex;
+}
+
+input{
+    display: flex;
+}
+
+
+
+
