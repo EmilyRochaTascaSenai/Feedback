@@ -3,6 +3,7 @@ import datetime
 import mysql.connector
 from data.conexao import Conexao
 from model.controler_mensagem  import Mensagem
+from model.controler_usuario import Usuario
 
 app = Flask(__name__)
 
@@ -41,10 +42,22 @@ def pagina_delete(codigo):
 def adicionar_curtida(curtida):
     Mensagem.curtidas_mensagens(curtida)
     return redirect("/")
-# Criando a rota cadastro
+# Criando a rota cadastro para exibir a pagina
 @app.route("/cadstro_usuario")
 def pagina_cadastro_usuario():
     return render_template ("usuario.html")
+# Criando para cadastar
+@app.route("/post/cadstro_usuario",methods=["Post"])
+def  post_cadastar_usaurio():
+    login=request.form.get("usuario")
+    senha=request.form.get("senha")
+    nome=request.form.get("nome")
+   
+   
+    Usuario.cadastrar(login,senha,nome)
+
+    return redirect("/login")
+    
 
 # Criando a rota de login
 @app.route("/login_usuario")
