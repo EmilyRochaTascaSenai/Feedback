@@ -1,9 +1,12 @@
+from hashlib import sha256
 from data.conexao import Conexao
 
 
 class  Usuario :
 
     def  cadastrar(login,senha,nome):
+        # Criptografando a senha
+        senha=sha256(senha.encode()).hexdigest()
         # Cadastrando as informações no banco de dados
         # Criando a conexão
         conexao = Conexao.criar_conexao()
