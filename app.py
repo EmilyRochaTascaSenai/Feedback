@@ -41,4 +41,13 @@ def pagina_delete(codigo):
 def adicionar_curtida(curtida):
     Mensagem.curtidas_mensagens(curtida)
     return redirect("/")
+# Criando a rota cadastro
+@app.route("/cadstro_usuario")
+def pagina_cadastro_usuario():
+    return render_template ("usuario.html")
 
+# Criando a rota de login
+@app.route("/login_usuario")
+def pagina_login_usuario():
+    return render_template("login.html")
+app.run(debug=True)
