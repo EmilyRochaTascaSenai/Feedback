@@ -3,7 +3,7 @@ from data.conexao import Conexao
 
 class  Usuario :
 
-    def  cadastrar(usuario,senha,nome):
+    def  cadastrar(login,senha,nome):
         # Cadastrando as informações no banco de dados
         # Criando a conexão
         conexao = Conexao.criar_conexao()
@@ -14,11 +14,11 @@ class  Usuario :
 
         #  Criando o sql que será executado
 
-        sql="""INSERT INTO tb_usuarios
+        sql="""INSERT  tb_usuarios
         (login,senha,nome)
         VALUES
         (%s, %s, %s)"""  
-        valores = (usuario,senha,nome)
+        valores = (login,senha,nome)
 
         #    Executando o comenado sql
         cursor.execute(sql,valores)
