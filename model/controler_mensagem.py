@@ -75,7 +75,7 @@ class Mensagem:
         # Executando o comando SQL
         cursor.execute(sql, valores)
 
-        # Comitand para gravar as alterações
+        # Comitando para gravar as alterações
         conexao.commit()
 
         # Fechando a conexao
