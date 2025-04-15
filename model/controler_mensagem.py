@@ -152,7 +152,38 @@ class Mensagem:
         conexao.close()
 
 
-      
+    def ultima_mensagem (usuario):
+        conexao=Conexao.criar_conexao()
+        cursor=conexao.cursor()
+
+           # Criano o SQL  será executado
+        sql=""" SELECT mensagem, data_envio
+        FROM mensagens
+        WHERE usuario = %s
+        ORDER BY data_envio DESC
+        LIMIT 1
+"""
+        valores=(usuario,)
+
+          # Executando o comando SQL
+
+        cursor.execute(sql,valores)
+
+         # Comitando para gravar as alterações
+
+        conexao.commit()
+
+          # Fechando a conexão
+
+        conexao.close()
+
+
+
+
+
+
+
+
       
 
 
