@@ -71,7 +71,7 @@ def pagina_login_usuario():
 def api_mensagens():
     mensagens=Mensagem.recuperar_mensagens()
     return jsonify(mensagens)
-# 
+# Criando uma rota para pegar a ultima mensagem
 @app.route("/api/get/ultima_mensagem/<usuario>")
 def api_get_ultima_mensagem(usuario):
     mensagem=Mensagem.ultima_mensagem(usuario)
