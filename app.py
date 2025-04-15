@@ -1,4 +1,4 @@
-from flask  import Flask,render_template,request,redirect
+from flask  import Flask,render_template,request,redirect,jsonify
 import datetime
 import mysql.connector
 from data.conexao import Conexao
@@ -63,4 +63,12 @@ def  post_cadastar_usaurio():
 @app.route("/login_usuario")
 def pagina_login_usuario():
     return render_template("login.html")
+
+
+# Criando uma rota para API
+
+@app.route("/api/get/mensagens")
+def api_mensagens():
+    mensagens=Mensagem.recuperar_mensagens()
+    return jsonify(mensagens)
 app.run(debug=True)
